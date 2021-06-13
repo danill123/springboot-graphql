@@ -19,7 +19,12 @@ public class StudentResponse {
     private String city;
     private List<SubjectReponse> learningSubjects;
 
+    // this is for internal use. DO NOT PUT IN SCHEMA
+    private Student student;
+    private String fullName;
+
     public StudentResponse(Student student) {
+        this.student = student;
         this.id = student.getId();
         this.firstName = student.getFirstName();
         this.lastName = student.getLastName();
@@ -27,11 +32,13 @@ public class StudentResponse {
         this.street = student.getAddress().getStreet();
         this.city = student.getAddress().getCity();
 
+        /*
         if(student.getLearningSubjects() != null) {
             learningSubjects = new ArrayList<SubjectReponse>();
             for(Subject subject: student.getLearningSubjects()) {
                 learningSubjects.add(new SubjectReponse(subject));
             }
         }
+        */
     }
 }
